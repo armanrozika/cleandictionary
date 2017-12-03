@@ -105,6 +105,10 @@ body {
   background-color: #16a085;
 }
 
+#wait {
+	display: none;
+}
+
 footer {
   margin-top: 25px;
   text-align: center;
