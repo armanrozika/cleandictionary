@@ -7,7 +7,7 @@ document.getElementById('input').addEventListener('keydown', function(e){
 });
 
 function getData(){
-  var loading = document.getElementById('wait');
+	var loading = document.getElementById('wait');
   loading.style.display = "block";
   var word = document.getElementById('input').value;
   var apiUrl1 = "http://api.wordnik.com:80/v4/word.json/";
@@ -20,14 +20,24 @@ function getData(){
     loading.style.display = "none";
     var myData = JSON.parse(myRequest.responseText);
     var container = document.getElementById('result');
-    container.innerText = myData[0].text;
+    console.log(myData[0]);
+    if(myData[0] == undefined){
+    	container.innerText = "Oops... There's no such word in English";
+    }else{
+    	container.innerText = myData[0].text;
+    }
     var title = document.getElementById('title');
     title.innerText = word;
   };
   myRequest.send();
   var input = document.getElementById('input');
     input.value = '';
+
+
+
 }
 
+
+  
 
 
